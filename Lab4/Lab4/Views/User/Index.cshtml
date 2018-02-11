@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lab4.Data.Entities.User>
+﻿@model IEnumerable<Lab4.Models.View.UserViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -47,9 +47,10 @@
             @Html.DisplayFor(modelItem => item.YearsInSchool)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Pets", "Index", "Pet", new { userId = item.Id }, null)
         </td>
     </tr>
 }

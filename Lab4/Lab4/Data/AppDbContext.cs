@@ -20,8 +20,12 @@ namespace Lab4.Data
         }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Pet> Pets { get; set; }
+
+        public System.Data.Entity.DbSet<Lab4.Models.View.PetViewModel> PetViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<Lab4.Models.View.UserViewModel> UserViewModels { get; set; }
     }
-    
+
     public class AppDbInitializer : DropCreateDatabaseIfModelChanges<AppDbContext>
     {
 
