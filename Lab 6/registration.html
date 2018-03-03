@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="Styles/app.css" />
+</head>
+<body>
+    <header>
+        <h1>
+            Registration
+        </h1>
+    </header>
+    <nav>
+        <h2>
+            <a href="index.html">ET PHONE HOME</a>
+        </h2>
+        <h2>
+            <a href="registration.html">Register NOW</a>
+        </h2>
+        <h2>
+            <a href="help.html">Help help the huns are attacking</a>
+        </h2>
+    </nav>
+    <form>
+        <p>
+            First Name: <input id="FName" type="text" maxlength="10" />
+        </p>
+        <p>
+            Last Name: <input id="LName" type="text" maxlength="15" />
+        </p>
+        <p>
+            Age: <input id="age" type="text"/>
+        </p>
+        <p>
+            Year in school: <br />
+            Freshman: <input type="radio" name="year" />
+            Sophmore: <input type="radio" name="year" />
+            Junior: <input type="radio" name="year" />
+            Senior: <input type="radio" name="year" />
+        </p>
+        <p>
+            <input type="submit" value="DO IT! JOIN ME!" onsubmit="validate()" onclick="display()"/>
+        </p>
+    </form>
+    <b>
+        Summary
+    </b>
+    <div id="summary"></div>
+    <script type="text/javascript" src="Scripts/app.js"></script>
+            </body>
+</html>
