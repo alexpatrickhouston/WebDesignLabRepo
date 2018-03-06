@@ -8,6 +8,7 @@ using Lab8.Data.Entities;
 using Lab8.Models.View;
 using Lab8.Services;
 using log4net;
+using Microsoft.AspNet.Identity;
 
 namespace Lab4.Controllers
 {
@@ -21,11 +22,12 @@ namespace Lab4.Controllers
         {
             _petService = petService;
         }
-        public ActionResult Index(int userId)
+        public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
             _log.Debug("Getting list of pets for user: " + userId);
 
-            ViewBag.UserId = userId;
+
 
             var petViewModels = _petService.GetPetsForUser(userId);
 
@@ -33,10 +35,8 @@ namespace Lab4.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int userId)
+        public ActionResult Create()
         {
-            ViewBag.UserId = userId;
-
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Lab4.Controllers
                     throw;
                 }
 
-                return RedirectToAction("List", new { UserId = petViewModel.UserId });
+                return RedirectToAction("Index");
             }
 
             return View();
@@ -78,7 +78,7 @@ namespace Lab4.Controllers
             {
                 _petService.UpdatePet(petViewModel);
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             return View();
@@ -90,7 +90,7 @@ namespace Lab4.Controllers
 
             _petService.DeletePet(id);
 
-            return RedirectToAction("List", new { UserId = pet.UserId });
+            return RedirectToAction("Index");
         }
 
     }

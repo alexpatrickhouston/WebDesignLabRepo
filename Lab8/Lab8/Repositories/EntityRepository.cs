@@ -21,7 +21,7 @@ namespace Lab8.Repositories
             return _dbContext.Pets.Find(id);
         }
 
-        public IEnumerable<Pet> GetPetsForUser(int userId)
+        public IEnumerable<Pet> GetPetsForUser(string userId)
         {
             return _dbContext.Pets.Where(pet => pet.UserId == userId).ToList();
         }

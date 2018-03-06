@@ -27,6 +27,6 @@ namespace Lab8.Models.View
         [Display(Name = "Vet Name")]
         public string VetName { get; set; }
         public bool CheckupAlert { get; set; }
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
     }
 }

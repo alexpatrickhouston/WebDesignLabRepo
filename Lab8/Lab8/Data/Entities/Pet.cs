@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Lab8.Models;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab8.Data.Entities
 {
@@ -20,7 +21,8 @@ namespace Lab8.Data.Entities
         [Required]
         public string VetName { get; set; }
         [Required]
-        public int UserId { get; set; }
+        [ForeignKey("User")]
+        public string UserId { get; set; }
         public ApplicationUser User { get; set; }
     }
 }
