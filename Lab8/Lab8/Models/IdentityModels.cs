@@ -24,7 +24,7 @@ namespace Lab8.Models
 
         public class AppDbContext : IdentityDbContext<ApplicationUser>
         {
-            public AppDbContext()
+            public AppDbContext(): base("DefaultConnection",throwIfV1Schema: false)
             {
                 this.Configuration.LazyLoadingEnabled = false;
             }
@@ -40,11 +40,10 @@ namespace Lab8.Models
         }
             public virtual DbSet<Pet> Pets { get; set; }
 
-            public System.Data.Entity.DbSet<Lab8.Models.View.PetViewModel> PetViewModels { get; set; }
+        public System.Data.Entity.DbSet<Lab8.Models.View.PetViewModel> PetViewModels { get; set; }
+    }
 
-        }
-
-        public class AppDbInitializer : DropCreateDatabaseIfModelChanges<AppDbContext>
+    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<AppDbContext>
         {
 
         }

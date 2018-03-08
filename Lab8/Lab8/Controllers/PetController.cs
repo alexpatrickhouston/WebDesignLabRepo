@@ -40,27 +40,24 @@ namespace Lab4.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult Create(PetViewModel petViewModel)
         {
             _log.Info("Creating pet");
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _petService.SavePet(petViewModel);
-                }
-                catch (Exception ex)
-                {
-                    _log.Error("Failed to save pet.", ex);
-                    throw;
-                }
+            if (!ModelState.IsValid) return View();
 
-                return RedirectToAction("Index");
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                _petService.SavePet(userId, petViewModel);
+            }
+            catch (Exception ex)
+            {
+                _log.Error("Failed to save pet.", ex);
+                throw;
             }
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

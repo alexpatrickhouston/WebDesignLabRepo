@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Lab8.Models.View.PetViewModel>
 
 @{
-    ViewBag.Title = "Pets";
+    ViewBag.Title = "Index";
 }
 
-<h2>List</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -23,30 +23,35 @@
         <th>
             @Html.DisplayNameFor(model => model.VetName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckupAlert)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NextCheckup)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VetName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextCheckup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckupAlert)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
 
 </table>

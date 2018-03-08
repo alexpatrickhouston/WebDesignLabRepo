@@ -37,11 +37,11 @@ namespace Lab8.Services
             return petViewModels;
         }
 
-        public void SavePet(PetViewModel petViewModel)
+        public void SavePet(string userId,PetViewModel petViewModel)
         {
             //throw new Exception("Test Exception");
 
-            var pet = MapToPet(petViewModel);
+            var pet = MapToPet(userId,petViewModel);
 
             _repository.SavePet(pet);
         }
@@ -60,7 +60,7 @@ namespace Lab8.Services
             _repository.DeletePet(id);
         }
 
-        private Pet MapToPet(PetViewModel petViewModel)
+        private Pet MapToPet(string userID,PetViewModel petViewModel)
         {
             return new Pet
             {
@@ -68,7 +68,8 @@ namespace Lab8.Services
                 Name = petViewModel.Name,
                 Age = petViewModel.Age,
                 NextCheckup = petViewModel.NextCheckup,
-                VetName = petViewModel.VetName
+                VetName = petViewModel.VetName,
+                UserId = userID
             };
         }
 

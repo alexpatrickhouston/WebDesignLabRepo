@@ -12,7 +12,7 @@ namespace Lab8.Services
 
         IEnumerable<PetViewModel> GetPetsForUser(string userId);
 
-        void SavePet(PetViewModel pet);
+        void SavePet(string userId,PetViewModel pet);
 
         void UpdatePet(PetViewModel user);
 
